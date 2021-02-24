@@ -1,0 +1,16 @@
+{
+  "menu": [
+    {
+      "url": "home",
+      "name": "Home",
+      "icon": "home",
+      "slug": "home"
+    },
+    {
+      "url": "log",
+      "name": "Log",
+      "icon": "file-text",
+      "slug": "log"
+    }
+  ]
+}
