@@ -119,6 +119,9 @@
                                                         <thead>
                                                             <tr>
                                                                 <th align="center" style="padding-bottom: 3px;  width: 15%">
+                                                                    <p>Agent</p>
+                                                                </th>
+                                                                <th align="center" style="padding-bottom: 3px;  width: 15%">
                                                                     <p>AWB</p>
                                                                 </th>
                                                                 <th align="center" style="padding-bottom: 3px; width: 10%">
@@ -150,6 +153,9 @@
                                                         <tbody>
                                                         @foreach($table as $row)
                                                             <tr>
+                                                                <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
+                                                                    {{ isset($row['agent']) ? $row['agent'] : '' }}
+                                                                </td>
                                                                 <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
                                                                     {{ isset($row['airbill_number']) ? $row['airbill_number'] : '' }}
                                                                 </td>

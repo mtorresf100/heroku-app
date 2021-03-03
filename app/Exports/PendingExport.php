@@ -41,7 +41,7 @@ class PendingExport implements FromCollection, WithHeadings, WithMapping
             'COMMENTS',
             // 'WOFF LOCATION',
             'ASSIGNED AGENT',
-            'PUP/POD AGENT',
+            // 'PUP/POD AGENT',
         ];
     }
 
@@ -57,7 +57,7 @@ class PendingExport implements FromCollection, WithHeadings, WithMapping
             isset($row->comments) ? $row->comments : '',
             // isset($row->woff_location) ? $row->woff_location : '',
             isset($row->agent) ? $row->agent : '',
-            isset($row->email_pup_pod_agent) ? $row->email_pup_pod_agent : '',
+            // isset($row->email_pup_pod_agent) ? $row->email_pup_pod_agent : '',
         ];
     }
 }
