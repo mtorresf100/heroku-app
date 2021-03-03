@@ -142,7 +142,7 @@
                                                         @foreach($table as $row)
                                                             <tr>
                                                                 <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
-                                                                    {{ isset($row['agent']) ? $row['agent'] : '' }}
+                                                                    {{ isset($row['assigned_agent']) ? $row['assigned_agent'] : '' }}
                                                                 </td>
                                                                 <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
                                                                     {{ isset($row['pending_category']) ? $row['pending_category'] : '' }}

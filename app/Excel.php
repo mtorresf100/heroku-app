@@ -44,7 +44,7 @@ class Excel extends Model
      *
      * @var array
      */
-    protected $appends = ['name'];
+    protected $appends = ['name', 'assigned_agent'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -75,6 +75,18 @@ class Excel extends Model
     public function getNameAttribute()
     {
         $text = explode('@', $this->email_pup_pod_agent);
+        $text = isset($text[0]) ? str_replace('.', ' ', $text[0]) : '';
+        return strtoupper($text);
+    }
+
+    /**
+     * Generate Assigned Agent Name
+     *
+     * @return string
+     */
+    public function getAssignedAgentAttribute()
+    {
+        $text = explode('@', $this->agent);
         $text = isset($text[0]) ? str_replace('.', ' ', $text[0]) : '';
         return strtoupper($text);
     }
