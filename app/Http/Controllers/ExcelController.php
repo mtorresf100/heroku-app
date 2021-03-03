@@ -71,16 +71,10 @@ class ExcelController extends Controller
             $ccs = array_unique(explode(', ', $mail->cc));
 
             foreach ($tos as $value) {
-                if ($value != 'irving.parodi@fedex.com') {
-                    $mailer->addTo($value);
-                }
+                $mailer->addTo($value);
             }
             foreach ($ccs as $cc) {
-                foreach ($tos as $to) {
-                    if ($cc != $to && $cc != 'irving.parodi@fedex.com') {
-                        $mailer->addCC($cc);
-                    }
-                }
+                $mailer->addCC($cc);
             }
 
             $mailer->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));

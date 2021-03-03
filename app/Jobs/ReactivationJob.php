@@ -66,14 +66,10 @@ class ReactivationJob implements ShouldQueue
         try {
             $recipients = array_unique(array_merge($to, $copy));
             foreach ($recipients as $value) {
-                if ($value != 'irving.parodi@fedex.com') {
-                    $mailer->addTo($value);
-                }
+                $mailer->addTo($value);
             }
             foreach ($agents as $value) {
-                if ($value != 'irving.parodi@fedex.com') {
-                    $mailer->addCC($value);
-                }
+                $mailer->addCC($value);
             }
             $mailer->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
             // Set email subject
