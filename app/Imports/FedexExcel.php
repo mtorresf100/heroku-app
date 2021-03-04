@@ -85,7 +85,7 @@ class FedexExcel implements ToModel, WithHeadingRow, WithValidation, WithBatchIn
             '*.'.self::HEADER_SHIP_DATE     => 'required_if:'.self::HEADER_PENDING_CATEGORY.',REACTIVATION ACCT',
             '*.'.self::HEADER_LEGAL_ENTITY_CODE     => 'required|string|size:3',
             '*.'.self::HEADER_COMMENTS  => 'required',
-            '*.'.self::HEADER_WOFF_LOCATION   => 'nullable|string|size:4',
+            '*.'.self::HEADER_WOFF_LOCATION   => 'required|string|size:4',
             '*.'.self::HEADER_EMAIL_PUP_POD_AGENT   => 'required|email',
             '*.'.self::HEADER_EMAIL_MANAGER_COLLECTOR   => 'required|email',
             '*.'.self::HEADER_PENDING_CATEGORY  => 'required',

@@ -119,7 +119,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th align="center" style="padding-bottom: 3px;  width: 15%">
-                                                                    <p>Agent</p>
+                                                                    <p>Assigned Agent</p>
                                                                 </th>
                                                                 <th align="center" style="padding-bottom: 3px;  width: 15%">
                                                                     <p>AWB</p>

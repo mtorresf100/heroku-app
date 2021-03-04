@@ -42,7 +42,7 @@ class ReactivationExport implements FromCollection, WithHeadings, WithMapping, W
             'CASH DATE',
             'SHIP DATE',
             'LEGAL ENTITY CODE',
-            // 'WOFF LOCATION',
+            'WOFF LOCATION',
             'COMMENTS',
             'ASSIGNED AGENT',
         ];
@@ -60,7 +60,7 @@ class ReactivationExport implements FromCollection, WithHeadings, WithMapping, W
             isset($row->cash_date) ? $row->cash_date->format('Y-m-d') : '',
             isset($row->ship_date) ? $row->ship_date->format('Y-m-d') : '',
             isset($row->legal_entity_code) ? $row->legal_entity_code : '',
-            // isset($row->woff_location) ? $row->woff_location : '',
+            isset($row->woff_location) ? $row->woff_location : '',
             isset($row->comments) ? $row->comments : '',
             isset($row->agent) ? $row->agent : '',
         ];

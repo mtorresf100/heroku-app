@@ -116,7 +116,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th align="center" style="padding-bottom: 3px;">
-                                                                    <p>Agent</p>
+                                                                    <p>Assigned Agent</p>
                                                                 </th>
                                                                 <th align="center" style="padding-bottom: 3px;">
                                                                     <p>Pending Category</p>
