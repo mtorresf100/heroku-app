@@ -18,7 +18,7 @@ Los puntos con simbolo ($) son comandos desde consola
 - $ composer install
 ```
 
-### Copiar el archivo .env.example (.env.example) y cambiar el nombre a .env y realizar los cambios necesarios
+### Copiar el archivo .env.example y cambiar el nombre a .env y realizar los cambios necesarios
 
 ```sh
 DB_CONNECTION=mysql
