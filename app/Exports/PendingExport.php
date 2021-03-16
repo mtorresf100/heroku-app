@@ -9,6 +9,7 @@ use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Color;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
@@ -74,6 +75,12 @@ class PendingExport implements FromCollection, WithHeadings, WithMapping, Should
                 'color' => [
                     'argb' => Color::COLOR_WHITE
                 ]
+            ],
+            'alignment' => [
+                 'horizontal'   => Alignment::HORIZONTAL_CENTER,
+                 'vertical'     => Alignment::VERTICAL_CENTER,
+                 'textRotation' => 0,
+                 'wrapText'     => TRUE
             ],
             'fill' => [
                 'fillType' => Fill::FILL_SOLID,

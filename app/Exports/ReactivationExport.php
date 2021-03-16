@@ -10,6 +10,7 @@ use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Color;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
@@ -29,7 +30,7 @@ class ReactivationExport implements FromCollection, WithHeadings, WithMapping, W
     }
 
     /**
-    * @return \Illuminate\Support\Collection
+    * @return Collection
     */
     public function collection()
     {
@@ -90,6 +91,12 @@ class ReactivationExport implements FromCollection, WithHeadings, WithMapping, W
                 'color' => [
                     'argb' => Color::COLOR_WHITE
                 ]
+            ],
+            'alignment' => [
+                'horizontal'   => Alignment::HORIZONTAL_CENTER,
+                'vertical'     => Alignment::VERTICAL_CENTER,
+                'textRotation' => 0,
+                'wrapText'     => TRUE
             ],
             'fill' => [
                 'fillType' => Fill::FILL_SOLID,
