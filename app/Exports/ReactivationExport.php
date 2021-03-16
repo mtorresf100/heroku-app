@@ -51,6 +51,7 @@ class ReactivationExport implements FromCollection, WithHeadings, WithMapping, W
             'WOFF LOCATION',
             'COMMENTS',
             'ASSIGNED AGENT',
+            'PUP/POD AGENT',
         ];
     }
 
@@ -69,6 +70,7 @@ class ReactivationExport implements FromCollection, WithHeadings, WithMapping, W
             isset($row->woff_location) ? $row->woff_location : '',
             isset($row->comments) ? $row->comments : '',
             isset($row->agent) ? $row->agent : '',
+            isset($row->email_pup_pod_agent) ? $row->email_pup_pod_agent : '',
         ];
     }
 
@@ -82,7 +84,7 @@ class ReactivationExport implements FromCollection, WithHeadings, WithMapping, W
 
     public function styles(Worksheet $sheet)
     {
-        $sheet->getStyle('A1:L1')->getFill()->applyFromArray([
+        $sheet->getStyle('A1:M1')->applyFromArray([
             'font' => [
                 'bold' => true,
                 'color' => [

@@ -68,7 +68,7 @@ class PendingExport implements FromCollection, WithHeadings, WithMapping, Should
 
     public function styles(Worksheet $sheet)
     {
-        $sheet->getStyle('A1:J1')->getFill()->applyFromArray([
+        $sheet->getStyle('A1:J1')->applyFromArray([
             'font' => [
                 'bold' => true,
                 'color' => [
