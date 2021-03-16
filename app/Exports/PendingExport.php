@@ -4,11 +4,16 @@ namespace App\Exports;
 
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithColumnFormatting;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Style\Color;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class PendingExport implements FromCollection, WithHeadings, WithMapping
+class PendingExport implements FromCollection, WithHeadings, WithMapping, ShouldAutoSize, WithStyles, WithColumnWidths
 {
 
     /**
@@ -22,7 +27,7 @@ class PendingExport implements FromCollection, WithHeadings, WithMapping
     }
 
     /**
-    * @return \Illuminate\Support\Collection
+    * @return Collection
     */
     public function collection()
     {
@@ -58,6 +63,35 @@ class PendingExport implements FromCollection, WithHeadings, WithMapping
             isset($row->woff_location) ? $row->woff_location : '',
             isset($row->agent) ? $row->agent : '',
             isset($row->email_pup_pod_agent) ? $row->email_pup_pod_agent : '',
+        ];
+    }
+
+    public function styles(Worksheet $sheet)
+    {
+        $sheet->getStyle('A1:J1')->getFill()->applyFromArray([
+            'font' => [
+                'bold' => true,
+                'color' => [
+                    'argb' => Color::COLOR_WHITE
+                ]
+            ],
+            'fill' => [
+                'fillType' => Fill::FILL_SOLID,
+                'rotation' => 90,
+                'startColor' => [
+                    'rgb' => '8673A1',
+                ],
+                'endColor' => [
+                    'rgb' => '8673A1',
+                ],
+            ]
+        ]);
+    }
+
+    public function columnWidths(): array
+    {
+        return [
+            'G' => 40,
         ];
     }
 }

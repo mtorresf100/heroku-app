@@ -115,9 +115,11 @@
                                                     <table style="font-family: 'Montserrat',Arial,sans-serif; width: 100%;" border="1" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                                                         <thead>
                                                             <tr>
+                                                                {{--
                                                                 <th align="center" style="padding-bottom: 3px;">
                                                                     <p>Assigned Agent</p>
                                                                 </th>
+                                                                --}}
                                                                 <th align="center" style="padding-bottom: 3px;">
                                                                     <p>Pending Category</p>
                                                                 </th>
@@ -141,9 +143,11 @@
                                                         <tbody>
                                                         @foreach($table as $row)
                                                             <tr>
+                                                                {{--
                                                                 <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
                                                                     {{ isset($row['assigned_agent']) ? $row['assigned_agent'] : '' }}
                                                                 </td>
+                                                                --}}
                                                                 <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
                                                                     {{ isset($row['pending_category']) ? $row['pending_category'] : '' }}
                                                                 </td>
@@ -165,7 +169,7 @@
                                                             </tr>
                                                         @endforeach
                                                         <tr>
-                                                            <td style="font-family: 'Montserrat',Arial,sans-serif;" colspan="6">
+                                                            <td style="font-family: 'Montserrat',Arial,sans-serif;" colspan="5">
                                                                 <p align="right" style="font-weight: 700; font-size: 14px; line-height: 24px; margin: 0; padding-right: 16px; text-align: right;">
                                                                     TOTAL
                                                                 </p>
