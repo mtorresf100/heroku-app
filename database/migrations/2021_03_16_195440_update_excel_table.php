@@ -15,7 +15,7 @@ class UpdateExcelTable extends Migration
     {
         Schema::table('excel', function (Blueprint $table) {
             $table->string('pup_pop_agent', 191)
-                ->after('after')
+                ->after('agent')
                 ->nullable();
         });
     }
