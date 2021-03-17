@@ -128,7 +128,7 @@
                                                                     <p>Type F/D</p>
                                                                 </th>
                                                                 <th align="center" style="padding-bottom: 3px; width: 10%">
-                                                                    <p>ID Pup/Pop Agent</p>
+                                                                    <p>ID Pup/Pod Agent</p>
                                                                 </th>
                                                                 <th align="center" style="padding-bottom: 3px;">
                                                                     <p>Assigned Agent</p>
