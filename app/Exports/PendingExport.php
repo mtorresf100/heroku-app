@@ -65,7 +65,7 @@ class PendingExport implements FromCollection, WithHeadings, WithMapping, Should
             isset($row->woff_location) ? $row->woff_location : '',
             isset($row->agent) ? $row->agent : '',
             isset($row->email_pup_pod_agent) ? $row->email_pup_pod_agent : '',
-            isset($row->pup_pop_agent) ? $row->pup_pop_agent : '',
+            isset($row->pup_pod_agent) ? $row->pup_pod_agent : '',
         ];
     }
 

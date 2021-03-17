@@ -157,7 +157,7 @@
                                                                     {{ isset($row['airbill_type']) ? $row['airbill_type'] : '' }}
                                                                 </td>
                                                                 <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
-                                                                    {{ isset($row['pup_pop_agent']) ? $row['pup_pop_agent'] : '' }}
+                                                                    {{ isset($row['pup_pod_agent']) ? $row['pup_pod_agent'] : '' }}
                                                                 </td>
                                                                 <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
                                                                     {{ isset($row['assigned_agent']) ? $row['assigned_agent'] : '' }}

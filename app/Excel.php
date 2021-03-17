@@ -37,7 +37,7 @@ class Excel extends Model
         'email_manager_collector',
         'pending_category',
         'agent',
-        'pup_pop_agent',
+        'pup_pod_agent',
     ];
 
     /**
