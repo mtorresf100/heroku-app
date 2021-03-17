@@ -48,6 +48,7 @@ class PendingExport implements FromCollection, WithHeadings, WithMapping, Should
             'WOFF LOCATION',
             'ASSIGNED AGENT',
             'PUP/POD AGENT',
+            'ID PUP/POD AGENT',
         ];
     }
 
@@ -64,12 +65,13 @@ class PendingExport implements FromCollection, WithHeadings, WithMapping, Should
             isset($row->woff_location) ? $row->woff_location : '',
             isset($row->agent) ? $row->agent : '',
             isset($row->email_pup_pod_agent) ? $row->email_pup_pod_agent : '',
+            isset($row->pup_pop_agent) ? $row->pup_pop_agent : '',
         ];
     }
 
     public function styles(Worksheet $sheet)
     {
-        $sheet->getStyle('A1:J1')->applyFromArray([
+        $sheet->getStyle('A1:K1')->applyFromArray([
             'font' => [
                 'bold' => true,
                 'color' => [

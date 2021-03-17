@@ -44,6 +44,7 @@ class FedexExcel implements ToModel, WithHeadingRow, WithValidation, WithBatchIn
     const HEADER_EMAIL_MANAGER_COLLECTOR = 'email_manager_collector';
     const HEADER_PENDING_CATEGORY = 'pending_category';
     const HEADER_AGENT = 'assigned_agents_email';
+    const PUP_POP_AGENT = 'pup_pod_agent';
 
     public function model(array $row)
     {
@@ -65,6 +66,7 @@ class FedexExcel implements ToModel, WithHeadingRow, WithValidation, WithBatchIn
             'email_manager_collector'=> isset($row[self::HEADER_EMAIL_MANAGER_COLLECTOR]) ? $row[self::HEADER_EMAIL_MANAGER_COLLECTOR] : null,
             'pending_category'       => isset($row[self::HEADER_PENDING_CATEGORY]) ? $row[self::HEADER_PENDING_CATEGORY] : null,
             'agent'                  => isset($row[self::HEADER_AGENT]) ? $row[self::HEADER_AGENT] : null,
+            'pup_pop_agent'          => isset($row[self::PUP_POP_AGENT]) ? $row[self::PUP_POP_AGENT] : null,
         ]);
 
         $this->data->push($model);
@@ -90,6 +92,7 @@ class FedexExcel implements ToModel, WithHeadingRow, WithValidation, WithBatchIn
             '*.'.self::HEADER_EMAIL_MANAGER_COLLECTOR   => 'required|email',
             '*.'.self::HEADER_PENDING_CATEGORY  => 'required',
             '*.'.self::HEADER_AGENT     => 'required|email',
+            '*.'.self::PUP_POP_AGENT     => 'nullable|numeric',
         ];
     }
 

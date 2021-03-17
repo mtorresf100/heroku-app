@@ -115,11 +115,6 @@
                                                     <table style="font-family: 'Montserrat',Arial,sans-serif; width: 100%;" border="1" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                                                         <thead>
                                                             <tr>
-                                                                {{--
-                                                                <th align="center" style="padding-bottom: 3px;">
-                                                                    <p>Assigned Agent</p>
-                                                                </th>
-                                                                --}}
                                                                 <th align="center" style="padding-bottom: 3px;">
                                                                     <p>Pending Category</p>
                                                                 </th>
@@ -132,6 +127,12 @@
                                                                 <th align="center" style="padding-bottom: 3px; width: 10%">
                                                                     <p>Type F/D</p>
                                                                 </th>
+                                                                <th align="center" style="padding-bottom: 3px; width: 10%">
+                                                                    <p>ID Pup/Pop Agent</p>
+                                                                </th>
+                                                                <th align="center" style="padding-bottom: 3px;">
+                                                                    <p>Assigned Agent</p>
+                                                                </th>
                                                                 <th align="center" style="padding-bottom: 3px;">
                                                                     <p>Feedback</p>
                                                                 </th>
@@ -143,11 +144,6 @@
                                                         <tbody>
                                                         @foreach($table as $row)
                                                             <tr>
-                                                                {{--
-                                                                <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
-                                                                    {{ isset($row['assigned_agent']) ? $row['assigned_agent'] : '' }}
-                                                                </td>
-                                                                --}}
                                                                 <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
                                                                     {{ isset($row['pending_category']) ? $row['pending_category'] : '' }}
                                                                 </td>
@@ -161,6 +157,12 @@
                                                                     {{ isset($row['airbill_type']) ? $row['airbill_type'] : '' }}
                                                                 </td>
                                                                 <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
+                                                                    {{ isset($row['pup_pop_agent']) ? $row['pup_pop_agent'] : '' }}
+                                                                </td>
+                                                                <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
+                                                                    {{ isset($row['assigned_agent']) ? $row['assigned_agent'] : '' }}
+                                                                </td>
+                                                                <td align="center"  style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px;">
 
                                                                 </td>
                                                                 <td align="center" style="font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; text-align: center;">
@@ -169,7 +171,7 @@
                                                             </tr>
                                                         @endforeach
                                                         <tr>
-                                                            <td style="font-family: 'Montserrat',Arial,sans-serif;" colspan="5">
+                                                            <td style="font-family: 'Montserrat',Arial,sans-serif;" colspan="7">
                                                                 <p align="right" style="font-weight: 700; font-size: 14px; line-height: 24px; margin: 0; padding-right: 16px; text-align: right;">
                                                                     TOTAL
                                                                 </p>
