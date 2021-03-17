@@ -66,7 +66,7 @@ class FedexExcel implements ToModel, WithHeadingRow, WithValidation, WithBatchIn
             'email_manager_collector'=> isset($row[self::HEADER_EMAIL_MANAGER_COLLECTOR]) ? $row[self::HEADER_EMAIL_MANAGER_COLLECTOR] : null,
             'pending_category'       => isset($row[self::HEADER_PENDING_CATEGORY]) ? $row[self::HEADER_PENDING_CATEGORY] : null,
             'agent'                  => isset($row[self::HEADER_AGENT]) ? $row[self::HEADER_AGENT] : null,
-            'pup_pop_agent'          => isset($row[self::PUP_POP_AGENT]) ? $row[self::PUP_POP_AGENT] : null,
+            'pup_pod_agent'          => isset($row[self::PUP_POP_AGENT]) ? $row[self::PUP_POP_AGENT] : null,
         ]);
 
         $this->data->push($model);
