@@ -26,7 +26,7 @@ class ReactivationJob implements ShouldQueue
     /**
      * @var string
      */
-    private $subject = 'Citycenter research process: Reactivate acc request. Potential written-off to your city center';
+    private $subject = 'SECOND REQUEST / Citycenter research process: Reactivate acc request. Potential written-off to your city center';
 
     /**
      * Create a new job instance.

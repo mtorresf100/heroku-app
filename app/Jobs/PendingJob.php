@@ -28,7 +28,7 @@ class PendingJob implements ShouldQueue
     /**
      * @var string
      */
-    private $subject = 'Citycenter research process: Pending Acct# / GCCS info. Potential written-off to your city center';
+    private $subject = 'SECOND REQUEST / Citycenter research process: Pending Acct# / GCCS info. Potential written-off to your city center';
 
     /**
      * Create a new job instance.
