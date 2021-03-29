@@ -48,9 +48,9 @@ class ReactivationExport implements FromCollection, WithHeadings, WithMapping, W
             'REBILLING ACCOUNT',
             'CASH DATE',
             'SHIP DATE',
+            'COMMENTS',
             'LEGAL ENTITY CODE',
             'FEDEX ERROR LOCATION',
-            'COMMENTS',
             // 'ASSIGNED AGENT',
             // 'PUP/POD AGENT',
         ];
@@ -67,9 +67,9 @@ class ReactivationExport implements FromCollection, WithHeadings, WithMapping, W
             isset($row->rebilling_account) ? $row->rebilling_account : '',
             isset($row->cash_date) ? $row->cash_date->format('Y-m-d') : '',
             isset($row->ship_date) ? $row->ship_date->format('Y-m-d') : '',
+            isset($row->comments) ? $row->comments : '',
             isset($row->legal_entity_code) ? $row->legal_entity_code : '',
             isset($row->woff_location) ? $row->woff_location : '',
-            isset($row->comments) ? $row->comments : '',
             // isset($row->agent) ? $row->agent : '',
             // isset($row->email_pup_pod_agent) ? $row->email_pup_pod_agent : '',
         ];
