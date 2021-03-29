@@ -57,7 +57,7 @@ class ReactivationJob implements ShouldQueue
         $agents = $this->collection->unique('agent')->pluck('agent')->toArray();
         $tos = implode(', ', array_unique(array_merge($to, $copy)));
         $ccs = implode(', ', $agents);
-        $template = (new Mail\ReactivationMail($this->collection))->render();
+        $template = (new Mail\ReactivationMail($this->collection, $this->secondRequest))->render();
         $subject = "{$this->secondRequest}{$this->subject}";
         $mail->fill([
             'to' => $tos,
