@@ -26,6 +26,24 @@
                   @enderror
               </div>
             </div>
+              <div class="form-group">
+                  <div class="custom-control custom-checkbox">
+                      <input
+                              class="custom-control-input @error('second-request') is-invalid @enderror"
+                              type="checkbox"
+                              id="second-request"
+                              name="second-request"
+                              value="true"
+                              {{ old('second-request') ? 'checked' : '' }}
+                      />
+                      <label class="custom-control-label" for="second-request">Second Request</label>
+                      @error('second-request')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                  </div>
+              </div>
             <a href="{{ route('home')  }}" class="btn btn-outline-primary waves-effect waves-float waves-light" type="submit">Reiniciar</a>
             <button class="btn btn-primary waves-effect waves-float waves-light" type="submit">Enviar Masivo</button>
           </div>

@@ -100,7 +100,9 @@
                                     <td class="sm-px-24" style="--bg-opacity: 1; background-color: #ffffff; background-color: rgba(255, 255, 255, var(--bg-opacity)); border-radius: 4px; font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif; font-size: 14px; line-height: 24px; padding: 48px; text-align: left; --text-opacity: 1; color: #626262; color: rgba(98, 98, 98, var(--text-opacity));" bgcolor="rgba(255, 255, 255, var(--bg-opacity))" align="left">
                                         <p style="font-weight: 600; font-size: 18px; margin-bottom: 0;">Good Day</p>
                                         <p style="font-weight: 700; font-size: 20px; margin-top: 0; --text-opacity: 1; color: #ff5850; color: rgba(255, 88, 80, var(--text-opacity));">Team</p>
+                                        @if(isset($secondRequest))
                                         <p style="margin: 0 0 24px;">This is the second request.</p>
+                                        @endif
                                         <p style="margin: 0 0 24px;">
                                             Please update the payment on GCCS system / send proof of payment or provide the correct account number for the following AWB to charge the cost of D or F as detailed in the table.
                                         </p>

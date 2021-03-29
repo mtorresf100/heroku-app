@@ -33,18 +33,18 @@ class FedexExcel implements ToModel, WithHeadingRow, WithValidation, WithBatchIn
     const HEADER_INVOICE_NUMBER = 'invoice_number';
     const HEADER_INVOICE_AGE = 'invoice_age';
     const HEADER_AIRBILL_TYPE = 'airbill_type';
-    const HEADER_AIRBILL_ORIGINAL_AMOUNT_USD = 'airbill_original_amount_usd';
-    const HEADER_REBILLING_ACCOUNT = 'rebilling_account';
+    const HEADER_AIRBILL_ORIGINAL_AMOUNT_USD = 'airbill_due_usd';
+    const HEADER_REBILLING_ACCOUNT = 'rebilling_account_number';
     const HEADER_CASH_DATE = 'cash_date';
     const HEADER_SHIP_DATE = 'ship_date';
     const HEADER_LEGAL_ENTITY_CODE = 'legal_entity_code';
     const HEADER_COMMENTS = 'comments';
-    const HEADER_WOFF_LOCATION = 'woff_location';
+    const HEADER_WOFF_LOCATION = 'fedex_error_location';
     const HEADER_EMAIL_PUP_POD_AGENT = 'email_pup_pod_agent';
     const HEADER_EMAIL_MANAGER_COLLECTOR = 'email_manager_collector';
     const HEADER_PENDING_CATEGORY = 'pending_category';
-    const HEADER_AGENT = 'assigned_agents_email';
-    const PUP_POP_AGENT = 'pup_pod_agent';
+    const HEADER_AGENT = 'assigned_agent_email';
+    const PUP_POP_AGENT = 'id_pup_pod_agent';
 
     public function model(array $row)
     {

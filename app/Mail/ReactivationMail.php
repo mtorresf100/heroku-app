@@ -16,16 +16,22 @@ class ReactivationMail extends Mailable
      * @var Collection
      */
     private $collection;
+    /**
+     * @var null
+     */
+    private $secondRequest;
 
 
     /**
      * Create a new message instance.
      *
      * @param Collection $collection
+     * @param null $secondRequest
      */
-    public function __construct(Collection $collection)
+    public function __construct(Collection $collection, $secondRequest = null)
     {
         $this->collection = $collection;
+        $this->secondRequest = $secondRequest;
     }
 
     /**
@@ -37,6 +43,7 @@ class ReactivationMail extends Mailable
     {
         return $this->view('mail.reactivation')
                     ->with([
+                        'secondRequest' => $this->secondRequest,
                         'table' => $this->collection,
                         'sum'   => $this->collection->sum('airbill_original_amount_usd')
                     ]);

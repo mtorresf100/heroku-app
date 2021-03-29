@@ -19,16 +19,19 @@ class PendingMail extends Mailable
      * @var Collection
      */
     private $collection;
+    private $secondRequest;
 
 
     /**
      * Create a new message instance.
      *
      * @param Collection $collection
+     * @param $secondRequest
      */
-    public function __construct(Collection $collection)
+    public function __construct(Collection $collection, $secondRequest = null)
     {
         $this->collection = $collection;
+        $this->secondRequest = $secondRequest;
     }
 
     /**
@@ -40,6 +43,7 @@ class PendingMail extends Mailable
     {
         return $this->view('mail.pending')
                 ->with([
+                    'secondRequest' => $this->secondRequest,
                     'table' => $this->collection,
                     'sum'   => $this->collection->sum('airbill_original_amount_usd')
                 ]);

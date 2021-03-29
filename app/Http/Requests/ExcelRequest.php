@@ -25,7 +25,7 @@ class ExcelRequest extends FormRequest
     {
         return [
             'file-upload'       =>  'required|file|mimes:xlsx,xls',
-            'is_second_send'    =>  'nullable|boolean'
+            'second-request'    =>  'nullable|boolean'
         ];
     }
 }

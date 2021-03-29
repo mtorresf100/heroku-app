@@ -148,7 +148,8 @@ return [
     */
 
     'attributes' => [
-        'file-upload'   =>  'archivo de excel'
+        'file-upload'   =>  'archivo de excel',
+        'second-request'    =>  'second request'
     ],
 
 ];

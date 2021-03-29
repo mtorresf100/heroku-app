@@ -28,16 +28,19 @@ class PendingJob implements ShouldQueue
     /**
      * @var string
      */
-    private $subject = 'SECOND REQUEST / Citycenter research process: Pending Acct# / GCCS info. Potential written-off to your city center';
+    private $subject = 'Citycenter research process: Pending Acct# / GCCS info. Potential written-off to your city center';
+    private $secondRequest;
 
     /**
      * Create a new job instance.
      *
      * @param Collection $collection
+     * @param $secondRequest
      */
-    public function __construct(Collection $collection)
+    public function __construct(Collection $collection, $secondRequest = null)
     {
         $this->collection = $collection;
+        $this->secondRequest = $secondRequest;
     }
 
     /**
@@ -56,11 +59,12 @@ class PendingJob implements ShouldQueue
         $agents = $this->collection->unique('agent')->pluck('agent')->toArray();
         $tos = implode(', ', array_unique(array_merge($to, $copy)));
         $ccs = implode(', ', $agents);
-        $template = (new Mail\PendingMail($this->collection))->render();
+        $template = (new Mail\PendingMail($this->collection, $this->secondRequest))->render();
+        $subject = "{$this->secondRequest}{$this->subject}";
         $mail->fill([
             'to' => $tos,
             'cc' => $ccs,
-            'subject' => $this->subject,
+            'subject' => $subject,
             'attachment' => $name,
             'body'  => $template,
         ]);
@@ -75,7 +79,7 @@ class PendingJob implements ShouldQueue
             }
             $mailer->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
             // Set email subject
-            $mailer->setSubject($this->subject);
+            $mailer->setSubject($subject);
             // Set email body
             $mailer->addContent('text/html', $template);
             $file = base64_encode(file_get_contents(storage_path("app/public/{$name}")));

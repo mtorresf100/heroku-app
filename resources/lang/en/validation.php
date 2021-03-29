@@ -145,6 +145,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'file-upload'   =>  'excel file',
+        'second-request'    =>  'second request'
+    ],
 
 ];

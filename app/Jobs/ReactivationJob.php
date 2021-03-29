@@ -26,16 +26,19 @@ class ReactivationJob implements ShouldQueue
     /**
      * @var string
      */
-    private $subject = 'SECOND REQUEST / Citycenter research process: Reactivate acc request. Potential written-off to your city center';
+    private $subject = 'Citycenter research process: Reactivate acc request. Potential written-off to your city center';
+    private $secondRequest;
 
     /**
      * Create a new job instance.
      *
      * @param Collection $collection
+     * @param $secondRequest
      */
-    public function __construct(Collection $collection)
+    public function __construct(Collection $collection, $secondRequest)
     {
         $this->collection = $collection;
+        $this->secondRequest = $secondRequest;
     }
 
     /**
@@ -55,10 +58,11 @@ class ReactivationJob implements ShouldQueue
         $tos = implode(', ', array_unique(array_merge($to, $copy)));
         $ccs = implode(', ', $agents);
         $template = (new Mail\ReactivationMail($this->collection))->render();
+        $subject = "{$this->secondRequest}{$this->subject}";
         $mail->fill([
             'to' => $tos,
             'cc' => $ccs,
-            'subject' => $this->subject,
+            'subject' => $subject,
             'attachment' => $name,
             'body'  => $template,
         ]);
@@ -73,7 +77,7 @@ class ReactivationJob implements ShouldQueue
             }
             $mailer->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
             // Set email subject
-            $mailer->setSubject($this->subject);
+            $mailer->setSubject($subject);
             // Set email body
             $mailer->addContent('text/html', $template);
             $file = base64_encode(file_get_contents(storage_path("app/public/{$name}")));

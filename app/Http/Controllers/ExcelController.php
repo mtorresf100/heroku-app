@@ -7,7 +7,6 @@ use App\Http\Requests\ExcelRequest;
 use App\Imports\FedexExcel;
 use App\Jobs\PendingJob;
 use App\Jobs\ReactivationJob;
-use App\Jobs\SendMailJob;
 use App\Mail;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -26,19 +25,20 @@ class ExcelController extends Controller
         try {
             $import = new FedexExcel;
             $import->import($request->file('file-upload'));
+            $secondRequest = $request->has('second-request') ? 'SECOND REQUEST / ' : null;
             $total = Excel::count();
             $pendings = Excel::whereCategory(['PENDING GCCS INFORMATION', 'PENDING ACCOUNT NUMBER'])
                          ->get()
                          ->groupBy('email_manager_collector');
-            $reactivations = Excel::whereCategory( ['REACTIVATION ACCT'])->get()
+            $reactivations = Excel::whereCategory( ['REACTIVATE ACCT REQUEST'])->get()
                                 ->groupBy('email_manager_collector');
 
             foreach ($pendings as $pending) {
-                $this->dispatch( new PendingJob($pending) );
+                $this->dispatch( new PendingJob($pending, $secondRequest) );
             }
 
             foreach ($reactivations as $reactivation) {
-                $this->dispatch( new ReactivationJob($reactivation) );
+                $this->dispatch( new ReactivationJob($reactivation, $secondRequest) );
             }
 
             $result = [
