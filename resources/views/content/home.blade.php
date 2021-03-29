@@ -33,7 +33,7 @@
                               type="checkbox"
                               id="second-request"
                               name="second-request"
-                              value="true"
+                              value="1"
                               {{ old('second-request') ? 'checked' : '' }}
                       />
                       <label class="custom-control-label" for="second-request">Second Request</label>
