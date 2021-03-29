@@ -114,7 +114,7 @@ class ReactivationExport implements FromCollection, WithHeadings, WithMapping, W
     public function columnWidths(): array
     {
         return [
-            'K' => 40,
+            'I' => 40,
         ];
     }
 }
