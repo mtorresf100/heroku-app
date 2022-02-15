@@ -53,10 +53,11 @@ class ExcelController extends Controller
 
             $result = [
                 'imported'  => $total,
-                'mails'     => count($pendings) + count($reactivations),
+                'mails'     => count($pendings) + count($reactivations) + count($pendingDuties),
                 'table'     => [
                     $pendings->toArray(),
                     $reactivations->toArray(),
+                    $pendingDuties->toArray()
                 ],
             ];
 
