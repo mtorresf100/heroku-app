@@ -4,6 +4,8 @@ namespace App\Imports;
 
 use App\Excel;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
@@ -82,9 +84,24 @@ class FedexExcel implements ToModel, WithHeadingRow, WithValidation, WithBatchIn
             '*.'.self::HEADER_INVOICE_AGE   => 'required|numeric',
             '*.'.self::HEADER_AIRBILL_TYPE  => 'required|string|size:1',
             '*.'.self::HEADER_AIRBILL_ORIGINAL_AMOUNT_USD   => 'required',
-            '*.'.self::HEADER_REBILLING_ACCOUNT     => 'required_if:'.self::HEADER_PENDING_CATEGORY.',REACTIVATION ACCT',
-            '*.'.self::HEADER_CASH_DATE     => 'required_if:'.self::HEADER_PENDING_CATEGORY.',REACTIVATION ACCT',
-            '*.'.self::HEADER_SHIP_DATE     => 'required_if:'.self::HEADER_PENDING_CATEGORY.',REACTIVATION ACCT',
+            // '*.'.self::HEADER_REBILLING_ACCOUNT     => 'required_if:'.self::HEADER_PENDING_CATEGORY.',REACTIVATION ACCT',
+            '*.'.self::HEADER_REBILLING_ACCOUNT     => function($attribute, $value, $onFailure) {
+                if (Str::contains($value, 'REACT')) {
+                    $onFailure(__('validation.required_if',['attribute' => $attribute, 'other' => self::HEADER_PENDING_CATEGORY, 'value' => $value]));
+                }
+            },
+            //'*.'.self::HEADER_CASH_DATE     => 'required_if:'.self::HEADER_PENDING_CATEGORY.',REACTIVATION ACCT',
+            '*.'.self::HEADER_CASH_DATE     => function($attribute, $value, $onFailure) {
+                if (Str::contains($value, 'REACT')) {
+                    $onFailure(__('validation.required_if',['attribute' => $attribute, 'other' => self::HEADER_PENDING_CATEGORY, 'value' => $value]));
+                }
+            },
+            // '*.'.self::HEADER_SHIP_DATE     => 'required_if:'.self::HEADER_PENDING_CATEGORY.',REACTIVATION ACCT',
+            '*.'.self::HEADER_SHIP_DATE     => function($attribute, $value, $onFailure) {
+                if (Str::contains($value, 'REACT')) {
+                    $onFailure(__('validation.required_if',['attribute' => $attribute, 'other' => self::HEADER_PENDING_CATEGORY, 'value' => $value]));
+                }
+            },
             '*.'.self::HEADER_LEGAL_ENTITY_CODE     => 'required|string|size:3',
             '*.'.self::HEADER_COMMENTS  => 'required',
             '*.'.self::HEADER_WOFF_LOCATION   => 'required|string|size:4',

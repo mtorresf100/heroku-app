@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Excel;
 use App\Http\Requests\ExcelRequest;
 use App\Imports\FedexExcel;
+use App\Jobs\DutyJob;
 use App\Jobs\PendingJob;
 use App\Jobs\ReactivationJob;
 use App\Mail;
@@ -30,11 +31,20 @@ class ExcelController extends Controller
             $pendings = Excel::whereCategory(['PENDING GCCS INFORMATION', 'PENDING ACCOUNT NUMBER'])
                          ->get()
                          ->groupBy('email_manager_collector');
+
+            $pendingDuties = Excel::whereCategory(['PENDING D/T COLLECTION'])
+                         ->get()
+                         ->groupBy('email_manager_collector');
+
             $reactivations = Excel::whereCategory( ['REACTIVATE ACCT REQUEST'])->get()
                                 ->groupBy('email_manager_collector');
 
             foreach ($pendings as $pending) {
                 $this->dispatch( new PendingJob($pending, $secondRequest) );
+            }
+
+            foreach ($pendingDuties as $pendingDuty) {
+                $this->dispatch( new DutyJob($pendingDuty, $secondRequest) );
             }
 
             foreach ($reactivations as $reactivation) {
